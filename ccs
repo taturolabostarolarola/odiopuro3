@@ -1,0 +1,6 @@
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #ff0055;
+}

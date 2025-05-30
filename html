@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <!-- === METADADOS E ESTILO === -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Depression</title>
 
   <style>
@@ -15,7 +15,7 @@
     }
 
     body {
-      background: url('https://i.pinimg.com/736x/65/ee/ff/65eeff4c209bf9c7badcd8a688136363') no-repeat center center fixed;
+      background: url('https://i.pinimg.com/736x/65/ee/ff/65eeff4c209bf9c7badcd8a688136363.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       font-family: 'Courier New', monospace;
@@ -27,6 +27,7 @@
       flex-direction: column;
       text-align: center;
       backdrop-filter: brightness(0.5);
+      position: relative;
     }
 
     /* === TÍTULO PRINCIPAL === */
@@ -34,4 +35,58 @@
       font-size: 3rem;
       margin-bottom: 1rem;
       letter-spacing: 2px;
-      text-shadow: 0 0 10px
+      text-shadow: 0 0 10px #ff0055;
+    }
+
+    /* === FRASES DE IMPACTO === */
+    .phrase {
+      font-size: 1.5rem;
+      max-width: 80%;
+      animation: fade 3s infinite alternate;
+    }
+
+    @keyframes fade {
+      from { opacity: 0.3; }
+      to { opacity: 1; }
+    }
+
+    /* === CAMADA ESCURA SOBRE O FUNDO === */
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- === CAMADA ESCURA SOBRE O FUNDO === -->
+  <div class="overlay"></div>
+
+  <!-- === TÍTULO DO SITE === -->
+  <h1>DEPRESSION</h1>
+
+  <!-- === FRASE DE IMPACTO ROTATIVA === -->
+  <div class="phrase" id="phrase">Embrace the void.</div>
+
+  <!-- === SCRIPT COM AS FRASES === -->
+  <script>
+    const phrases = [
+      "Embrace the void.",
+      "Pain is the only constant.",
+      "Silence screams louder than words.",
+      "Lost in thought, found in darkness.",
+      "There is beauty in despair.",
+      "Alone. Again. Always."
+    ];
+
+    let i = 0;
+    setInterval(() => {
+      document.getElementById("phrase").textContent = phrases[i];
+      i = (i + 1) % phrases.length;
+    }, 4000);
+  </script>
+</body>
+</html>
